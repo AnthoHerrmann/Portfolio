@@ -1,0 +1,15 @@
+<header id="header-container">
+    <a id="logo">
+        Anthony Herrmann
+    </a>
+    <button id="menu-toggle" (click)="toggleMenu()" aria-label="Menu">&#9776;</button>
+    <nav id="nav-menu" [class.active]="isMenuOpen">
+        <ul id="nav-list">
+            <li><a href="#home-page" (click)="closeMenu()">Accueil</a></li>
+            <li><a href="#presentation-page" (click)="closeMenu()">Présentation</a></li>
+            <li><a href="#competences" (click)="closeMenu()">Compétences</a></li>
+            <li><a href="#projets" (click)="closeMenu()">Projets</a></li>
+            <li><a href="#contact" (click)="closeMenu()">Contactez-moi</a></li>
+        </ul>
+    </nav>
+</header>

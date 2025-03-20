@@ -1,0 +1,105 @@
+/* Style du header */
+#header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    color: #FFFFFF;
+    padding: clamp(0.5rem, 2vw, 2rem);
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    position: fixed;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    height: 70px;
+}
+
+/* Style du logo */
+#logo {
+    font-size: clamp(18px, 4vw, 24px);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Style du menu en desktop */
+#nav-list {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#nav-list li a {
+    color: white;
+    text-decoration: none;
+    font-size: clamp(16px, 2vw, 18px);
+    transition: color 0.3s ease;
+    
+    &:hover {
+        color: rgba(255, 255, 255, 0.7);
+    }
+}
+
+/* Bouton menu hamburger (caché en desktop) */
+#menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Responsive : version mobile */
+@media screen and (max-width: 768px) {
+    #header-container {
+        height: 60px;
+    }
+    
+    #menu-toggle {
+        display: block;
+    }
+
+    #nav-menu {
+        position: fixed;
+        top: 60px;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(15px);
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+        display: none;
+        flex-direction: column;
+        padding: 2rem 0;
+        border-bottom: none;
+    }
+
+    #nav-list {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    #nav-list li a {
+        font-size: clamp(18px, 4vw, 24px);
+        padding: clamp(10px, 2vh, 15px);
+    }
+
+    /* Affichage du menu lorsqu'il est actif */
+    #nav-menu.active {
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #header-container {
+        padding: 0.5rem;
+    }
+    
+    #logo {
+        font-size: 18px;
+    }
+}

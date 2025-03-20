@@ -1,0 +1,377 @@
+.section-content {
+    display: flex;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 2rem;
+}
+
+.intro-section {
+    margin: 0.5rem 0 1rem;
+    color: #ffffff;
+}
+
+.presentation-page {
+    padding: 70px 20px 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #121212;
+    color: #ffffff;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.presentation-page h1, .section-content h2 {
+    text-align: center;
+    color: #ffffff;
+}
+
+.cv-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    box-shadow: 1px 2px 4px rgba(0,0,0,0.4);
+    padding: 2.25rem;
+    flex: 1;
+}
+
+.cv-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.25rem;
+    padding-bottom: 1.15rem;
+    border-bottom: 2px solid #333;
+}
+
+.cv-header h2 {
+    font-size: 2rem;
+    color: #ffffff;
+    margin: 0;
+}
+
+.download-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.download-btn:hover {
+    background-color: #0056b3;
+}
+
+.download-icon {
+    font-size: 1.2rem;
+}
+
+.cv-block {
+    margin-bottom: 2.25rem;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.cv-block h3 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.other-section {
+    flex: 3;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.studies-experience-section {
+    display: flex;
+    padding: 0 1rem;
+    flex-shrink: 0; // Empêche la section de se rétrécir
+    margin-bottom: 1.5rem;
+    flex: 2; // Réduit de 3 à 2
+}
+
+.cv-item {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.studies-section {
+    padding-right: 2rem;
+    border-right: #333 solid 2px;
+}
+
+.studies-section, .experience-section {
+    flex: 1;
+    border-bottom: #333 solid 2px;
+    padding-bottom: 1.35rem;
+}
+
+.studies-section .cv-item {
+    padding-left: 2rem;
+}
+
+.experience-section .cv-item {
+    padding-left: 2rem;
+}
+
+.year {
+    min-width: 120px;
+    color: #888;
+    font-weight: 500;
+}
+
+.details h4 {
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+.details p {
+    margin: 0;
+    color: #888;
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.informatical-skills {
+    flex-direction: column;
+    gap: 0.5rem;
+    display: flex;
+}
+
+.skill-tag {
+    background-color: #333;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: #ffffff;
+    width: fit-content;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.interest-section {
+    padding: 0.5rem 0; // Réduit de 1rem à 0.5rem
+    flex: 1; // Augmenté de 0.8 à 1 pour prendre moins d'espace
+    display: flex;
+    flex-direction: column;
+    min-height: 0; // Permet à la section de se rétrécir si nécessaire
+
+    .interest-grid {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 3rem; // Augmenté de 2.5rem à 3rem
+        margin-top: 0.75rem; // Réduit de 1rem à 0.75rem
+        flex: 1;
+    }
+
+    .interest-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        gap: 0.85rem;
+        width: 100%;
+        max-width: 150px;
+
+        svg {
+            flex-shrink: 0; // Empêche le SVG de se rétrécir
+            width: 70px; // Augmenté de 65px à 70px
+            height: 70px;
+            color: #007bff;
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .section-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .cv-container, .other-section {
+        flex: none;
+    }
+
+    .studies-experience-section {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .cv-section {
+      padding: 1rem;
+    }
+
+    .cv-header {
+      flex-direction: column;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .cv-item {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .year {
+      min-width: auto;
+    }
+
+    .section-content {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .presentation-page {
+        height: 100vh;
+        padding: 60px 10px 0;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch; // Pour un défilement plus fluide sur iOS
+    }
+
+    .cv-container {
+        padding: 1rem;
+    }
+
+    .studies-experience-section {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .studies-section {
+        border-right: none;
+        border-bottom: #333 solid 2px;
+        padding-right: 0;
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .studies-section, .experience-section {
+        padding-bottom: 1rem;
+        
+        .cv-item {
+            gap: 1rem;
+        }
+    }
+
+    .studies-section .cv-item,
+    .experience-section .cv-item {
+        padding-left: 1rem;
+    }
+
+    .skills-grid {
+        justify-content: center;
+    }
+
+    .interest-section {
+        height: auto;
+        padding: 1rem 0 2rem;
+
+        .interest-grid {
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .interest-item {
+            width: calc(33.33% - 1rem);  // 3 items par ligne sur tablette
+            
+            svg {
+                width: 55px;
+                height: 55px;
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .interest-section .interest-grid {
+        gap: 1rem;
+    }
+
+    .skill-tag {
+        font-size: 0.8rem;
+        padding: 0.35rem 0.7rem;
+    }
+
+    .cv-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .download-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .presentation-page {
+        padding: 40px 10px 0;
+    }
+
+    .cv-header {
+        margin-bottom: 1.5rem;
+    }
+
+    .studies-experience-section {
+        padding: 0 0.5rem;
+    }
+
+    .interest-section {
+        .interest-grid {
+            gap: 1rem;
+        }
+
+        .interest-item {
+            width: calc(50% - 0.5rem);  // 2 items par ligne sur mobile
+            
+            svg {
+                width: 45px;
+                height: 45px;
+            }
+        }
+    }
+}
+
+@media (max-width: 360px) {
+    .cv-header h2 {
+        font-size: 1.25rem;
+    }
+
+    .download-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    .interest-section .interest-item {
+        width: calc(50% - 0.5rem);
+        
+        svg {
+            width: 40px;
+            height: 40px;
+        }
+    }
+}
