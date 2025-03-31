@@ -1,0 +1,29 @@
+<div class="skill-section" id="skills-page">
+  <h1>Mes Compétences</h1>
+  <h2>Compétences Techniques</h2>
+  <div class="skills-container">
+    @for (skill of technicalSkills; track skill.name) {
+      <div class="skill-card">
+        <h3>{{ skill.name }}</h3>
+        <ul>
+          @for (item of skill.items; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+      </div>
+    }
+  </div>
+  <h2>Compétences Personnelles</h2>
+  <div class="skills-container">
+    @for (skill of softSkills; track skill.name) {
+      <div class="skill-card">
+        <h3>{{ skill.name }}</h3>
+        <ul>
+          @for (item of skill.items; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+      </div>
+    }
+  </div>
+</div>

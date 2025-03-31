@@ -41,6 +41,10 @@
     &:hover {
         color: rgba(255, 255, 255, 0.7);
     }
+    
+    &.active {
+        color: #007bff;
+    }
 }
 
 /* Bouton menu hamburger (caché en desktop) */

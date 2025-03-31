@@ -1,0 +1,175 @@
+.skill-section {
+  padding: 70px 20px 40px;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #121212;
+  color: #ffffff;
+  box-sizing: border-box;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  }
+
+  h1 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(30px);
+
+    &.visible {
+      animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    }
+  }
+
+  h2 {
+    color: #ffffff;
+    text-align: left; // Alignement à gauche
+    margin: 3rem 0 2rem 2rem; // Ajout de marge à gauche
+    opacity: 0;
+    transform: translateY(30px);
+
+    &.visible {
+      animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    }
+  }
+}
+
+.skills-container {
+  max-width: 90%; // Augmentation de la largeur maximale
+  margin: 0 auto;
+  display: grid;
+  padding: 0 2rem; // Augmentation du padding horizontal
+  gap: 2rem; // Augmentation de l'espace entre les cartes
+
+  // Container pour les compétences techniques (4 colonnes)
+  &:first-of-type {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  // Container pour les compétences personnelles (3 colonnes)
+  &:last-of-type {
+    grid-template-columns: repeat(3, 1fr);
+    
+    .skill-card {
+      grid-column: span 1; // Chaque carte prend 1 colonne
+    }
+  }
+}
+
+.skill-card {
+  background-color: rgba(30, 30, 30, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); // Ombre initiale plus visible
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); // Transition plus douce
+
+  &:hover {
+    border-color: #007bff;
+    transform: translateY(-8px); // Surélévation plus importante
+    box-shadow: 0 12px 20px rgba(0, 123, 255, 0.2); // Ombre plus prononcée et plus étendue
+    background-color: rgba(35, 35, 35, 0.95); // Léger changement de couleur
+
+    h3 {
+      color: #1a8cff;
+    }
+
+    li::before {
+      color: #1a8cff;
+    }
+  }
+
+  &.visible {
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  }
+
+  h3 {
+    color: #007bff;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    margin: 0.75rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: #b0b0b0;
+
+    &:before {
+      content: "•";
+      color: #007bff;
+      position: absolute;
+      left: 0;
+      font-size: 1.2em;
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1024px) {
+  .skills-container {
+    max-width: 95%; // Ajustement pour les écrans plus petits
+    padding: 0 1rem;
+    gap: 1.5rem;
+    &:first-of-type,
+    &:last-of-type {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  h2 {
+    margin-left: 1rem; // Réduction de la marge sur les écrans plus petits
+  }
+}
+
+@media (max-width: 768px) {
+  .skill-section {
+    padding: 60px 10px 30px;
+  }
+
+  .skills-container {
+    &:first-of-type,
+    &:last-of-type {
+      grid-template-columns: 1fr;
+    }
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skill-section {
+    padding: 40px 10px 20px;
+  }
+
+  .skill-card {
+    padding: 1rem;
+  }
+}

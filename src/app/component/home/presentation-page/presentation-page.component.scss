@@ -6,19 +6,78 @@
     margin-bottom: 2rem;
 }
 
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-element {
+    opacity: 0;
+    transform: translateY(40px);
+    
+    &.visible {
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
+}
+
 .intro-section {
-    margin: 0.5rem 0 1rem;
+    margin: 1.5rem 0 2rem;
     color: #ffffff;
+    opacity: 0;
+    transform: translateY(30px);
+    
+    &.visible {
+        animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    }
+    
+    p {
+        margin: 0 auto;
+        color: #e0e0e0;
+    }
+
+    h2 {
+        margin-bottom: 1.5rem;
+        font-size: 2rem;
+    }
 }
 
 .presentation-page {
-    padding: 70px 20px 0;
+    padding: 70px 20px 40px;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #121212;
     color: #ffffff;
-    overflow: hidden;
+    overflow-y: auto;
     box-sizing: border-box;
+    position: relative;
+    
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    }
+}
+
+h1 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0;
+    transform: translateY(30px);
+
+    &.visible {
+        animation: fadeInUp 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    }
 }
 
 .presentation-page h1, .section-content h2 {
@@ -29,11 +88,18 @@
 .cv-container {
     max-width: 1200px;
     margin: 0 auto;
-    background-color: #1e1e1e;
+    background-color: rgba(30, 30, 30, 0.95);
+    backdrop-filter: blur(10px);
     border-radius: 8px;
     box-shadow: 1px 2px 4px rgba(0,0,0,0.4);
     padding: 2.25rem;
     flex: 1;
+    opacity: 0;
+    transform: translateY(30px);
+    
+    &.visible {
+        animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    }
 }
 
 .cv-header {
@@ -91,14 +157,20 @@
     margin-top: 1rem;
     display: flex;
     flex-direction: column;
+    opacity: 0;
+    transform: translateY(30px);
+    
+    &.visible {
+        animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    }
 }
 
 .studies-experience-section {
     display: flex;
     padding: 0 1rem;
-    flex-shrink: 0; // Empêche la section de se rétrécir
+    flex-shrink: 0;
     margin-bottom: 1.5rem;
-    flex: 2; // Réduit de 3 à 2
+    flex: 2;
 }
 
 .cv-item {
@@ -128,18 +200,25 @@
 
 .year {
     min-width: 120px;
-    color: #888;
+    color: #a0a0a0;
     font-weight: 500;
+    font-size: 0.95rem;
 }
 
 .details h4 {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
     color: #ffffff;
+    font-size: 1.1rem;
 }
 
 .details p {
     margin: 0;
-    color: #888;
+    color: #b0b0b0;
+    line-height: 1.6;
+    
+    &:not(:last-child) {
+        margin-bottom: 0.8rem;
+    }
 }
 
 .skills-grid {
@@ -164,21 +243,27 @@
     display: inline-flex;
     align-items: center;
     white-space: nowrap;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        background-color: #404040;
+    }
 }
 
 .interest-section {
-    padding: 0.5rem 0; // Réduit de 1rem à 0.5rem
-    flex: 1; // Augmenté de 0.8 à 1 pour prendre moins d'espace
+    padding: 0.5rem 0;
+    flex: 1;
     display: flex;
     flex-direction: column;
-    min-height: 0; // Permet à la section de se rétrécir si nécessaire
+    min-height: 0;
 
     .interest-grid {
         display: flex;
         justify-content: space-around;
         align-items: center;
-        gap: 3rem; // Augmenté de 2.5rem à 3rem
-        margin-top: 0.75rem; // Réduit de 1rem à 0.75rem
+        gap: 3rem;
+        margin-top: 0.75rem;
         flex: 1;
     }
 
@@ -191,10 +276,22 @@
         gap: 0.85rem;
         width: 100%;
         max-width: 150px;
+        opacity: 0;
+        transform: translateY(20px);
+        
+        &.visible {
+            animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+        
+        @for $i from 1 through 4 {
+            &:nth-child(#{$i}) {
+                animation-delay: #{$i * 0.1}s;
+            }
+        }
 
         svg {
-            flex-shrink: 0; // Empêche le SVG de se rétrécir
-            width: 70px; // Augmenté de 65px à 70px
+            flex-shrink: 0;
+            width: 70px;
             height: 70px;
             color: #007bff;
             transition: transform 0.3s ease;
@@ -247,10 +344,14 @@
     }
 
     .presentation-page {
-        height: 100vh;
-        padding: 60px 10px 0;
+        min-height: 100vh;
+        padding: 60px 10px 30px;
         overflow-y: auto;
-        -webkit-overflow-scrolling: touch; // Pour un défilement plus fluide sur iOS
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .presentation-page::after {
+        width: 90%;
     }
 
     .cv-container {
@@ -299,12 +400,20 @@
         }
 
         .interest-item {
-            width: calc(33.33% - 1rem);  // 3 items par ligne sur tablette
+            width: calc(33.33% - 1rem);
             
             svg {
                 width: 55px;
                 height: 55px;
             }
+        }
+    }
+
+    .intro-section {
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+            padding: 0 1rem;
         }
     }
 }
@@ -329,7 +438,7 @@
     }
 
     .presentation-page {
-        padding: 40px 10px 0;
+        padding: 40px 10px 20px;
     }
 
     .cv-header {
@@ -346,7 +455,7 @@
         }
 
         .interest-item {
-            width: calc(50% - 0.5rem);  // 2 items par ligne sur mobile
+            width: calc(50% - 0.5rem);
             
             svg {
                 width: 45px;

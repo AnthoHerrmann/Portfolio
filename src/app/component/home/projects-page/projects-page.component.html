@@ -1,0 +1,39 @@
+<div class="projects-section" id="projets">
+    <h1>Mes Projets</h1>
+    <div class="carousel-container">
+        <button class="carousel-button prev" (click)="previousSlide()">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <div class="projects-container">
+            <div class="carousel-3d">
+                <div class="project-card" 
+                     *ngFor="let project of projects; let i = index"
+                     [ngStyle]="getCardStyle(i)"
+                     (click)="onCardClick(i)">
+                    <div class="project-image">
+                        <img [src]="project.imageUrl" [alt]="project.title">
+                    </div>
+                    <div class="project-content">
+                        <h3>{{ project.title }}</h3>
+                        <p>{{ project.description }}</p>
+                        <div class="project-technologies">
+                            <span class="tech-tag" *ngFor="let tech of project.technologies">{{ tech }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="carousel-button next" (click)="nextSlide()">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <div class="carousel-dots">
+            <button class="dot" *ngFor="let project of projects; let i = index" 
+                    [class.active]="currentIndex === i"
+                    (click)="goToSlide(i)">
+            </button>
+        </div>
+    </div>
+</div>
