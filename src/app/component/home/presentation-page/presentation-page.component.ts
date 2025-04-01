@@ -17,8 +17,8 @@ export class PresentationPageComponent implements OnInit, AfterViewInit {
 
   downloadCV() {
     const link = document.createElement('a');
-    link.href = '/Anthony_Herrmann_CV_Alternance.pdf';
-    link.download = 'Anthony_Herrmann_CV_Alternance.pdf';
+    link.href = 'assets/Anthony_Herrmann_CV.pdf';
+    link.download = 'Anthony_Herrmann_CV.pdf';
     link.click();
   }
 
