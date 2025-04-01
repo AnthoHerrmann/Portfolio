@@ -11,16 +11,16 @@ import { CommonModule } from '@angular/common';
 export class ProjectsPageComponent implements OnInit, AfterViewInit {
   projects = [
     {
-      title: 'Portfolio Personnel',
-      description: 'Site portfolio développé avec Angular, présentant mes compétences et réalisations.',
-      technologies: ['Angular', 'TypeScript', 'HTML', 'SCSS'],
-      imageUrl: 'assets/images/portfolio_accueil.png'
-    },
-    {
       title: 'Application Web de Suivi des Stages de l\'IUT de Bayonne',
       description: 'Application web permettant aux étudiants, aux enseignants et au responsable de stages de l\'IUT de Bayonne d\'effectuer un suivi des stages.',
       technologies: ['Angular', 'Laravel', 'TypeScript', 'PHP', 'HTML', 'CSS'],
       imageUrl: 'assets/images/suivi-stage_iut-bayonne.png'
+    },
+    {
+      title: 'Portfolio Personnel',
+      description: 'Site portfolio développé avec Angular, présentant mes compétences et réalisations.',
+      technologies: ['Angular', 'TypeScript', 'HTML', 'SCSS'],
+      imageUrl: 'assets/images/portfolio_accueil.png'
     },
     {
       title: 'Flux SQL d\'import de photos commerciales de véhicule',

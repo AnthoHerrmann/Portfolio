@@ -4,6 +4,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { PresentationPageComponent } from './presentation-page/presentation-page.component';
 import { SkillsPageComponent } from './skills-page/skills-page.component';
 import { ProjectsPageComponent } from './projects-page/projects-page.component';
+import { ContactsPageComponent } from './contacts-page/contacts-page.component';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,8 @@ import { ProjectsPageComponent } from './projects-page/projects-page.component';
     HomePageComponent,
     PresentationPageComponent,
     SkillsPageComponent,
-    ProjectsPageComponent
+    ProjectsPageComponent,
+    ContactsPageComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
