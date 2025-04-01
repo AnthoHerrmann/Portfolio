@@ -30,15 +30,15 @@ getSoftSkills(): Skill[] {
     return [
     {
         name: 'Organisation',
-        items: ['Autonomie', 'Rigueur', 'Gestion du temps']
+        items: ['Autonomie', 'Rigueur', 'Persévérent', 'Gestion du temps']
     },
     {
         name: 'Collaboration',
-        items: ['Travail en équipe', 'Communication']
+        items: ['Travail en équipe', 'Communication', 'Pédagogie']
     },
     {
         name: 'Résolution de problèmes',
-        items: ['Analyse', 'Prise de décision', 'Adaptabilité']
+        items: ['Analyse', 'Prise de décision', 'Adaptabilité', 'Polyvalence']
     }
     ];
 }
