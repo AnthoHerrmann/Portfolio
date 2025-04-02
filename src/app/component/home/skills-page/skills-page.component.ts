@@ -2,6 +2,7 @@ import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Skill } from '../../../model/skill.model';
 import { SkillsService } from '../../../service/skills.service';
+import { AnimationService } from '../../../service/animation.service';
 
 @Component({
   selector: 'app-skills-page',
@@ -14,7 +15,10 @@ export class SkillsPageComponent implements OnInit, AfterViewInit {
   technicalSkills?: Skill[];
   softSkills?: Skill[];
 
-  constructor(private skillsService: SkillsService) {}
+  constructor(
+    private skillsService: SkillsService,
+    private animationService: AnimationService
+  ) {}
 
   ngOnInit() {
     this.technicalSkills = this.skillsService.getTechnicalSkills();
@@ -22,28 +26,10 @@ export class SkillsPageComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.initIntersectionObserver();
-  }
-
-  private initIntersectionObserver() {
-    const options = {
-      root: null,
-      rootMargin: '-10% 0px',
-      threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            (entry.target as HTMLElement).classList.add('visible');
-          }, index * 150); // Augmenté à 150ms
-          observer.unobserve(entry.target);
-        }
-      });
-    }, options);
-
-    const elements = document.querySelectorAll('.skill-section h1, .skill-section h2, .skill-card');
-    elements.forEach(element => observer.observe(element));
+    this.animationService.initIntersectionObserver([
+      '.skill-section h1',
+      '.skill-section h2', 
+      '.skill-card'
+    ]);
   }
 }

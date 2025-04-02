@@ -2,8 +2,8 @@
   padding: 70px 20px 40px;
   width: 100vw;
   min-height: 100vh;
-  background-color: #121212;
-  color: #ffffff;
+  background-color: var(--background-color);
+  color: var(--text-color);
   box-sizing: border-box;
   position: relative;
 
@@ -15,7 +15,7 @@
     transform: translateX(-50%);
     width: 80%;
     height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    background: var(--section-divider);
   }
 
   h1 {
@@ -32,7 +32,7 @@
   }
 
   h2 {
-    color: #ffffff;
+    color: var(--text-color);
     text-align: left; // Alignement à gauche
     margin: 3rem 0 2rem 2rem; // Ajout de marge à gauche
     opacity: 0;
@@ -67,28 +67,28 @@
 }
 
 .skill-card {
-  background-color: rgba(30, 30, 30, 0.95);
+  background-color: var(--card-background);
   backdrop-filter: blur(10px);
   padding: 1.5rem;
   border-radius: 8px;
-  border: 2px solid transparent;
+  border: 2px solid var(--border-color);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); // Ombre initiale plus visible
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); // Transition plus douce
 
   &:hover {
-    border-color: #007bff;
+    border-color: var(--link-color);
     transform: translateY(-8px); // Surélévation plus importante
-    box-shadow: 0 12px 20px rgba(0, 123, 255, 0.2); // Ombre plus prononcée et plus étendue
-    background-color: rgba(35, 35, 35, 0.95); // Léger changement de couleur
+    box-shadow: 0 12px 20px var(--hover-shadow); // Ombre plus prononcée et plus étendue
+    background-color: var(--card-hover-background); // Léger changement de couleur
 
     h3 {
-      color: #1a8cff;
+      color: var(--link-color);
     }
 
     li::before {
-      color: #1a8cff;
+      color: var(--link-color);
     }
   }
 
@@ -97,7 +97,7 @@
   }
 
   h3 {
-    color: #007bff;
+    color: var(--link-color);
     margin-bottom: 1rem;
     font-size: 1.2rem;
   }
@@ -111,11 +111,11 @@
     margin: 0.75rem 0;
     padding-left: 1.5rem;
     position: relative;
-    color: #b0b0b0;
+    color: var(--text-color);
 
     &:before {
       content: "•";
-      color: #007bff;
+      color: var(--link-color);
       position: absolute;
       left: 0;
       font-size: 1.2em;

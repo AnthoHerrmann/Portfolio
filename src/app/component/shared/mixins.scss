@@ -1,0 +1,39 @@
+@mixin card-base {
+  background-color: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 6px var(--card-shadow);
+}
+
+@mixin page-section {
+  padding: 70px 20px 40px;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  box-sizing: border-box;
+  position: relative;
+}
+
+@mixin section-divider {
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 2px;
+    background: var(--section-divider);
+  }
+}
+
+@mixin responsive-padding {
+  @media (max-width: 768px) {
+    padding: 60px 10px 30px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 40px 10px 20px;
+  }
+}

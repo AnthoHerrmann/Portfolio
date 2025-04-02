@@ -1,0 +1,7 @@
+<label class="theme-switch" [attr.aria-label]="isDark ? 'Activer le thème clair' : 'Activer le thème sombre'">
+  <input type="checkbox" [checked]="!isDark" (change)="toggleTheme()">
+  <span class="slider">
+    <i class="fas fa-sun"></i>
+    <i class="fas fa-moon"></i>
+  </span>
+</label>

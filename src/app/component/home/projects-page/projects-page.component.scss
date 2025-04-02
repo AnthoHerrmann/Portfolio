@@ -1,34 +1,17 @@
-.projects-section {
-  padding: 70px 20px 40px;
-  width: 100vw;
-  min-height: 100vh;
-  background-color: #121212;
-  color: #ffffff;
-  box-sizing: border-box;
-  position: relative;
+@import '../../shared/mixins.scss';
+@import '../../shared/animations.scss';
 
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  }
+.projects-section {
+  @include page-section;
+  @include section-divider;
+  @include responsive-padding;
 
   h1 {
     text-transform: uppercase;
     letter-spacing: 2px;
     text-align: center;
     margin-bottom: 3rem;
-    opacity: 0;
-    transform: translateY(30px);
-
-    &.visible {
-      animation: fadeInUp 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-    }
+    @extend .fade-in-element;
   }
 }
 
@@ -68,16 +51,18 @@
 .project-card {
   position: absolute;
   width: 600px;
-  background-color: #1e1e1e;
+  background-color: var(--project-card-background); // Utilise la variable globale sans transparence
+  border: 1px solid var(--border-color);
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: opacity 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  cursor: pointer; // Ajouter un curseur pointer pour indiquer que c'est cliquable
+  box-shadow: 0 4px 6px var(--card-shadow);
+  transition: all 0.3s ease;
+  cursor: pointer;
 
   &:hover {
-    border-color: #007bff;
-    box-shadow: 0 12px 20px rgba(0, 123, 255, 0.2);
+    border-color: var(--link-color);
+    box-shadow: 0 12px 20px var(--hover-shadow);
     z-index: 10;
+    transform: translateY(-5px);
   }
 }
 
@@ -101,12 +86,12 @@
   gap: 1rem; // Espacement uniforme entre les éléments
 
   h3 {
-    color: #007bff;
+    color: var(--link-color);  // Utilise la variable globale pour l'orange
     font-size: 1.2rem;
   }
 
   p {
-    color: #b0b0b0;
+    color: var(--text-muted);  // Utilise la couleur de texte secondaire du thème
     line-height: 1.5;
   }
 }
@@ -119,17 +104,18 @@
 }
 
 .tech-tag {
-  background-color: rgba(0, 123, 255, 0.1);
-  color: #007bff;
+  background-color: var(--skill-tag-background);  // Utilise la même variable que les skills
+  color: var(--link-color);  // Utilise l'orange du thème
   padding: 0.3rem 0.8rem;
   border-radius: 15px;
   font-size: 0.9rem;
+  border: 1px solid var(--skill-tag-border);  // Utilise la même bordure que les skills
 }
 
 .carousel-button {
   position: absolute;
   bottom: -40px;
-  background: rgba(0, 123, 255, 0.2);
+  background: var(--card-background);
   border: none;
   border-radius: 50%;
   width: 40px;
@@ -137,13 +123,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: var(--text-color);
   cursor: pointer;
   transition: background-color 0.3s ease;
   z-index: 3;
 
   &:hover {
-    background: rgba(0, 123, 255, 0.4);
+    background: var(--link-color);
   }
 
   &.prev {
@@ -171,18 +157,44 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
+    background: var(--border-color);
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
 
     &.active {
-      background: #007bff;
+      background: var(--link-color);  // Points actifs en orange
       transform: scale(1.2);
     }
 
     &:hover {
-      background: rgba(0, 123, 255, 0.5);
+      background: var(--link-hover);
+      opacity: 0.7;
+    }
+  }
+}
+
+// Styles spécifiques pour chaque thème directement dans le composant
+:host-context(body.dark-theme) {
+  .project-card {
+    background-color: #2a2a2a;
+  }
+}
+
+:host-context(body.light-theme) {
+  .project-card {
+    background-color: #ffffff;
+  }
+
+  .carousel-button {
+    &:hover {
+      background: var(--link-color);  // Utilise l'orange en hover
+    }
+  }
+
+  .dot {
+    &.active {
+      background: var(--link-color);  // Points actifs en orange
     }
   }
 }

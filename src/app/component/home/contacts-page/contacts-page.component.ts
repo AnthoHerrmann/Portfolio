@@ -3,6 +3,18 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import emailjs from '@emailjs/browser';
 
+interface FormData {
+  name: string;
+  email: string;
+  message: string;
+}
+
+interface FormErrors {
+  name: string;
+  email: string;
+  message: string;
+}
+
 @Component({
   selector: 'app-contacts-page',
   standalone: true,
@@ -11,13 +23,13 @@ import emailjs from '@emailjs/browser';
   styleUrl: './contacts-page.component.scss'
 })
 export class ContactsPageComponent implements OnInit {
-  formData = {
+  formData: FormData = {
     name: '',
     email: '',
     message: ''
   };
 
-  formErrors = {
+  formErrors: FormErrors = {
     name: '',
     email: '',
     message: ''
@@ -60,9 +72,9 @@ export class ContactsPageComponent implements OnInit {
 
   validateField(field: string, checkTouched: boolean = true): boolean {
     let isValid = true;
-    this.formErrors[field as keyof typeof this.formErrors] = '';
+    this.formErrors[field as keyof FormErrors] = '';
 
-    const value = this.formData[field as keyof typeof this.formData];
+    const value = this.formData[field as keyof FormData];
     const inputElement = document.getElementById(field) as HTMLInputElement;
     const isTouched = this.touchedFields[field];
 
@@ -76,7 +88,7 @@ export class ContactsPageComponent implements OnInit {
 
     if (!value) {
       if (!checkTouched || isTouched) {
-        this.formErrors[field as keyof typeof this.formErrors] = 
+        this.formErrors[field as keyof FormErrors] = 
           this.validationMessages[field as keyof typeof this.validationMessages].required;
         inputElement.classList.add('invalid');
       }

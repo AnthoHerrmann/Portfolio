@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
@@ -15,19 +14,12 @@ export class HeaderComponent {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
-  closeMenu(): void {
-    this.isMenuOpen = false;
-  }
-
   scrollToSection(event: Event, sectionId: string): void {
     event.preventDefault();
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
+      element.scrollIntoView({behavior: 'smooth', block: 'start'});
+      this.isMenuOpen = false;
     }
-    this.closeMenu();
   }
 }
